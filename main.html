@@ -69,9 +69,16 @@
             border-color: #555; /* Dark mode textarea border color */
             color: #e0e0e0; /* Dark mode textarea text color */
         }
-        .toggle-mode, .speech-to-text {
+        .toggle-mode, .speech-to-text, .share-note {
             margin-top: 10px;
             text-align: center;
+        }
+        .share-note button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 5px;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -82,15 +89,15 @@
             <div class="note-actions">
                 <!-- Save Button -->
                 <button onclick="saveNote()">
-                    <img src="save.png" alt="Save" width="20">
+                    <img src="save-icon.png" alt="Save" width="20">
                 </button>
                 <!-- Edit Button -->
                 <button onclick="editNote()">
-                    <img src="edit1.png" alt="Edit" width="20">
+                    <img src="edit-icon.png" alt="Edit" width="20">
                 </button>
                 <!-- Delete Button -->
                 <button onclick="deleteNote()">
-                    <img src="delete1.png" alt="Delete" width="20">
+                    <img src="delete-icon.png" alt="Delete" width="20">
                 </button>
                 <!-- Save and Close Button -->
                 <button onclick="saveAndClose()">
@@ -111,6 +118,10 @@
         <!-- Speech-to-Text Button -->
         <div class="speech-to-text">
             <button onclick="startSpeechRecognition()">Start Speech-to-Text</button>
+        </div>
+        <!-- Share Note Button -->
+        <div class="share-note">
+            <button onclick="shareNote()">Share Note</button>
         </div>
     </div>
 
@@ -171,6 +182,14 @@
 
         function toggleMode() {
             document.body.classList.toggle('dark-mode');
+        }
+
+        function shareNote() {
+            const content = document.getElementById('note-content').value;
+            const subject = encodeURIComponent('Check out my note');
+            const body = encodeURIComponent(content);
+            const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
         }
 
         // Load saved note content from localStorage
