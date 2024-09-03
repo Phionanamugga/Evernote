@@ -69,16 +69,31 @@
             border-color: #555; /* Dark mode textarea border color */
             color: #e0e0e0; /* Dark mode textarea text color */
         }
-        .toggle-mode, .speech-to-text, .share-note {
+        .toggle-mode, .speech-to-text, .share-note, .photo-import {
             margin-top: 10px;
             text-align: center;
         }
-        .share-note button {
+        .photo-import input[type="file"] {
+            display: none;
+        }
+        .photo-import label {
             cursor: pointer;
-            border: none;
-            background: none;
-            padding: 5px;
-            font-size: 18px;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .photo-preview {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .photo-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -123,6 +138,13 @@
         <div class="share-note">
             <button onclick="shareNote()">Share Note</button>
         </div>
+        <!-- Photo Import Button -->
+        <div class="photo-import">
+            <label for="photo-upload">Import Photo</label>
+            <input type="file" id="photo-upload" accept="image/*" onchange="previewPhoto(event)">
+        </div>
+        <!-- Photo Preview -->
+        <div class="photo-preview" id="photo-preview"></div>
     </div>
 
     <script>
@@ -192,6 +214,21 @@
             window.location.href = mailtoLink;
         }
 
+        function previewPhoto(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    const photoPreview = document.getElementById('photo-preview');
+                    photoPreview.innerHTML = ''; // Clear previous previews
+                    photoPreview.appendChild(imgElement);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
         // Load saved note content from localStorage
         document.addEventListener("DOMContentLoaded", function() {
             const savedContent = localStorage.getItem('noteContent');
@@ -202,3 +239,4 @@
     </script>
 </body>
 </html>
+
