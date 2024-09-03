@@ -69,7 +69,7 @@
             border-color: #555; /* Dark mode textarea border color */
             color: #e0e0e0; /* Dark mode textarea text color */
         }
-        .toggle-mode {
+        .toggle-mode, .speech-to-text {
             margin-top: 10px;
             text-align: center;
         }
@@ -108,9 +108,43 @@
         <div class="toggle-mode">
             <button onclick="toggleMode()">Toggle Light/Dark Mode</button>
         </div>
+        <!-- Speech-to-Text Button -->
+        <div class="speech-to-text">
+            <button onclick="startSpeechRecognition()">Start Speech-to-Text</button>
+        </div>
     </div>
 
     <script>
+        // Check for Web Speech API support
+        const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let speechRecognition;
+
+        if (recognition) {
+            speechRecognition = new recognition();
+            speechRecognition.lang = 'en-US';
+            speechRecognition.interimResults = false;
+            speechRecognition.maxAlternatives = 1;
+
+            speechRecognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('note-content').value += transcript;
+            };
+
+            speechRecognition.onerror = function(event) {
+                alert('Speech recognition error: ' + event.error);
+            };
+        } else {
+            alert('Web Speech API is not supported in this browser.');
+        }
+
+        function startSpeechRecognition() {
+            if (speechRecognition) {
+                speechRecognition.start();
+            } else {
+                alert('Speech recognition is not supported.');
+            }
+        }
+
         function saveNote() {
             const content = document.getElementById('note-content').value;
             localStorage.setItem('noteContent', content);
