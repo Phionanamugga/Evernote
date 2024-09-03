@@ -35,6 +35,31 @@ document.addEventListener("DOMContentLoaded", function() {
             valid = false;
         }
 
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        // Regex pattern for password complexity: at least 8 characters, 1 uppercase, 1 lowercase, 1 digit, and 1 special character
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!passwordPattern.test(password)) {
+            errorMessage.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.';
+            errorMessage.style.display = 'block';
+            event.preventDefault(); // Prevent form submission
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            errorMessage.textContent = 'Passwords do not match.';
+            errorMessage.style.display = 'block';
+            event.preventDefault(); // Prevent form submission
+            return;
+        }
+
+        errorMessage.style.display = 'none'; // Clear error message
+    });
+
         if (!valid) {
             event.preventDefault();
         }
