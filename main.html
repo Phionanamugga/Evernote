@@ -33,28 +33,31 @@
         <!-- Text Area for Note Content -->
         <textarea id="note-content" class="note-content" placeholder="Write your notes here..."></textarea>
         <!-- Link to Open a New Page -->
-        <div style="margin-top: 10px;">
-            <a href="newpage.html">Open a new page</a>
+        <div style="margin-top: 20px;">
+            <a href="newpage.html" style="display: inline-block; margin-right: 10px;">
+                <img src="newpage.png" alt="Open a new page" type="button" width="30" height="30">
+            </a>
+            <!-- Toggle Light/Dark Mode Button -->
+            <div class="toggle-mode" style="display: inline-block; margin-right: 10px;">
+                <button onclick="toggleMode()">Toggle Light/Dark Mode</button>
+            </div>
+            <!-- Speech-to-Text Button -->
+            <div class="speech-to-text" style="display: inline-block; margin-right: 10px;">
+                <button onclick="startSpeechRecognition()">Start Speech-to-Text</button>
+            </div>
+            <!-- Share Note Button -->
+            <div class="share-note" style="display: inline-block; margin-right: 10px;">
+                <button onclick="shareNote()">Share Note</button>
+            </div>
+            <!-- Photo Import Button -->
+            <div class="photo-import" style="display: inline-block; margin-right: 10px;">
+                <label for="photo-upload">Import Photo</label>
+                <input type="file" id="photo-upload" accept="image/*" onchange="previewPhoto(event)">
+            </div>
+            <!-- Photo Preview -->
+            <div class="photo-preview" id="photo-preview" style="display: inline-block;"></div>
         </div>
-        <!-- Toggle Light/Dark Mode Button -->
-        <div class="toggle-mode">
-            <button onclick="toggleMode()">Toggle Light/Dark Mode</button>
-        </div>
-        <!-- Speech-to-Text Button -->
-        <div class="speech-to-text">
-            <button onclick="startSpeechRecognition()">Start Speech-to-Text</button>
-        </div>
-        <!-- Share Note Button -->
-        <div class="share-note">
-            <button onclick="shareNote()">Share Note</button>
-        </div>
-        <!-- Photo Import Button -->
-        <div class="photo-import">
-            <label for="photo-upload">Import Photo</label>
-            <input type="file" id="photo-upload" accept="image/*" onchange="previewPhoto(event)">
-        </div>
-        <!-- Photo Preview -->
-        <div class="photo-preview" id="photo-preview"></div>
+        
     </div>
 
     <!-- Link to external JavaScript file -->
