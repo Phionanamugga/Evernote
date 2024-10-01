@@ -1,5 +1,5 @@
-# Ezy Note App
-Welcome to Ezy Note, a simple and intuitive note-taking app designed to help you manage your notes, stay organized and focused.
+# Evernote App
+Welcome to Evernote, a simple and intuitive note-taking app designed to help you manage your notes, stay organized and focused.
 
 # Features
 - **Create and Edit Notes**: Write, edit, save, and delete notes with ease.
@@ -38,7 +38,7 @@ Use the pin feature to keep important notes at the top of your list.
 Create folders to group related notes together.
 Use markdown formatting to add style and emphasis to your notes.
 Support
-If you have any questions or need help with the Ezy Note app, please don't hesitate to reach out to our support team at [support@ezy-note.com](mailto:support@ezy-note.com).
+If you have any questions or need help with the Ezy Note app, please don't hesitate to reach out to our support team at [support@evernote.com](mailto:support@evernote.com).
 
 ## **Technologies Used**
 
@@ -78,7 +78,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 MIT License
 
-Copyright (c) [2024] [Ezy_Notes]
+Copyright (c) [2024] [Evernote]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
