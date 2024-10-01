@@ -1,14 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #ffffff; /* Default light mode background */
+    background-color:rgb(248, 244, 243); /* Default light mode background */
     color: #000000; /* Default light mode text color */
     transition: background-color 0.3s, color 0.3s;
 }
 
 .dark-mode {
     background-color: #121212; /* Dark mode background */
-    color: #e0e0e0; /* Dark mode text color */
+    color:#e0e0e0; /* Dark mode text color */
 }
 
 .note-container {
@@ -20,7 +20,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9; /* Default light mode container background */
     transition: background-color 0.3s, border-color 0.3s;
-}
+    gap: 20px;
+    
 
 .dark-mode .note-container {
     background-color: #1e1e1e; /* Dark mode container background */
