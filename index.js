@@ -35,22 +35,56 @@ document.addEventListener("DOMContentLoaded", function() {
             valid = false;
         }
 
-        document.getElementById('registration-form').addEventListener('submit', function(event) {
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
+        if (!valid) {
+            event.preventDefault();
+            return;
+        }
+
+        // Fetch API Example
+        const formData = {
+            username: usernameInput.value.trim(),
+            email: emailInput.value.trim(),
+            password: passwordInput.value.trim()
+        };
+
+        // Replace with your actual API endpoint
+        const apiUrl = 'https://your-api-endpoint.com/register';
+
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Handle the response data here
+            console.log('Success:', data);
+            // Redirect or show success message
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+        // Password complexity validation
         const errorMessage = document.getElementById('error-message');
 
-        // Regex pattern for password complexity: at least 8 characters, 1 uppercase, 1 lowercase, 1 digit, and 1 special character
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        if (!passwordPattern.test(password)) {
+        if (!passwordPattern.test(passwordInput.value)) {
             errorMessage.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.';
             errorMessage.style.display = 'block';
             event.preventDefault(); // Prevent form submission
             return;
         }
 
-        if (password !== confirmPassword) {
+        if (passwordInput.value !== confirmPasswordInput.value) {
             errorMessage.textContent = 'Passwords do not match.';
             errorMessage.style.display = 'block';
             event.preventDefault(); // Prevent form submission
@@ -58,11 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         errorMessage.style.display = 'none'; // Clear error message
-    });
-
-        if (!valid) {
-            event.preventDefault();
-        }
     });
 
     function showError(input, message) {
