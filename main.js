@@ -32,6 +32,29 @@ function saveNote() {
     const content = document.getElementById('note-content').value;
     localStorage.setItem('noteContent', content);
     alert('Note saved!');
+    
+    // Fetch API Example
+    const apiUrl = 'https://your-api-endpoint.com/save-note'; // Replace with your API endpoint
+
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ note: content })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Note saved on server:', data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
 }
 
 function editNote() {
@@ -86,3 +109,4 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('note-content').value = savedContent;
     }
 });
+
