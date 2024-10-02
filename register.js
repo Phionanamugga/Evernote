@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const usernameInput = document.getElementById("username");
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
     const confirmPasswordInput = document.getElementById("confirm-password");
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", async function (event) {
         let valid = true;
         clearErrors();
 
@@ -35,34 +35,48 @@ document.addEventListener("DOMContentLoaded", function() {
             valid = false;
         }
 
-        document.getElementById('registration-form').addEventListener('submit', function(event) {
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
-        const errorMessage = document.getElementById('error-message');
-
         // Regex pattern for password complexity: at least 8 characters, 1 uppercase, 1 lowercase, 1 digit, and 1 special character
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        if (!passwordPattern.test(password)) {
-            errorMessage.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.';
-            errorMessage.style.display = 'block';
-            event.preventDefault(); // Prevent form submission
-            return;
+        if (!passwordPattern.test(passwordInput.value)) {
+            showError(passwordInput, 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.');
+            valid = false;
         }
-
-        if (password !== confirmPassword) {
-            errorMessage.textContent = 'Passwords do not match.';
-            errorMessage.style.display = 'block';
-            event.preventDefault(); // Prevent form submission
-            return;
-        }
-
-        errorMessage.style.display = 'none'; // Clear error message
-    });
 
         if (!valid) {
             event.preventDefault();
+            return;
         }
+
+        // Proceed to fetch API if valid
+        try {
+            const response = await fetch('https://api.example.com/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: usernameInput.value,
+                    email: emailInput.value,
+                    password: passwordInput.value,
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                showError(form, errorData.message || 'Registration failed.'); // Show server error
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            console.log('Registration successful:', data);
+            // Redirect or show success message here
+        } catch (error) {
+            console.error('Error:', error);
+            showError(form, 'An unexpected error occurred.'); // Show generic error message
+        }
+
+        event.preventDefault(); // Prevent form submission
     });
 
     function showError(input, message) {

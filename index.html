@@ -3,58 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <title>User Login</title>
     <link rel="stylesheet" href="index.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-      <div class="logo">
-          <img src="note.jpg" alt="App Logo">
-      </div>
-      <div class="registration-form">
-        <h2 style="text-align: center;">Login</h2>
-          <form action="main.html" method="GET">
-              <div class="form-group">
-                  <label for="username">Username:</label>
-                  <input type="text" id="username" name="username" required>
-              </div>
+    <div class="notebook">
+        <div class="spiral"></div>
+        <div class="content">
+            <div class="registration-form">
+              <h2 class="title">EverNote</h2>
+                <form action="main.html" method="GET">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
 
-              <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="password" id="password" name="password" required
-                         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
-                         title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.">
-              </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required
+                               pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                               title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.">
+                    </div>
 
-              <div class="form-group">
-                  <button type="submit">Login</button>
-              </div>
-              <!-- Forgot Password Link -->
-              <div class="form-group" style="text-align: right;">
-                <a href="forgot_password.html">Forgot Password?</a>
+                    <div class="form-group">
+                        <button type="submit">Login</button>
+                    </div>
+                    <!-- Forgot Password Link -->
+                    <div class="form-group" style="text-align: right;">
+                      <a href="forgot_password.html ">Forgot Password?</a>
+                  </div>
+                </form>
+                <div class="social-login">
+                    <p>Login with</p>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook-square" style="font-size: 24px; margin: 0 10px; color:whitesmoke;"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <i class="fab fa-twitter-square" style="font-size: 24px; margin: 0 10px; color: whitesmoke;"></i>
+                    </a>
+                    <a href="https://www.google.com" target="_blank">
+                        <i class="fab fa-google" style="font-size: 24px; margin: 0 10px; color:whitesmoke;"></i>
+                    </a>
+                </div>
+
+                <div class="link">
+                    <p>Don't have an account? <a href="register.html">Sign Up</a>.</p>
+                </div>
             </div>
-          </form>
-          <div class="social-login">
-              <p>Login with</p>
-              <a href="https://www.facebook.com" target="_blank">
-                  <i class="fab fa-facebook-square" style="font-size: 24px; margin: 0 10px; color: #3b5998;"></i>
-              </a>
-              <a href="https://twitter.com" target="_blank">
-                  <i class="fab fa-twitter-square" style="font-size: 24px; margin: 0 10px; color: #1DA1F2;"></i>
-              </a>
-              <a href="https://www.google.com" target="_blank">
-                  <i class="fab fa-google" style="font-size: 24px; margin: 0 10px; color: #DB4437;"></i>
-              </a>
-          </div>
-
-          <div class="link">
-              <p>Don't have an account? <a href="register.html">Sign Up</a>.</p>
-          </div>
-      </div>
-  </div>
-  <script src="index.js"></script>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
 
