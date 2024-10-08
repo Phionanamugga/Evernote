@@ -1,3 +1,14 @@
+import * as tf from '@tensorflow/tfjs';
+
+// Sample ML pipeline
+async function loadModel() {
+    const model = await tf.loadLayersModel('path/to/model.json');
+    console.log("Model loaded successfully");
+}
+
+loadModel();
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector("form");
     const usernameInput = document.getElementById("username");
