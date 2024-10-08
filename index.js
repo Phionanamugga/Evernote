@@ -1,6 +1,6 @@
 import * as tf from '@tensorflow/tfjs';
 
-// Sample ML pipeline
+// ML pipeline
 async function loadModel() {
     const model = await tf.loadLayersModel('path/to/model.json');
     console.log("Model loaded successfully");
