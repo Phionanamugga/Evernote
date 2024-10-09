@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #canvas {
+            border: 1px solid #ddd;
+            cursor: crosshair;
+        }
+        .toolbar {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .color-picker, .tool-picker {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        .color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        .tool {
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <div class="tool-picker">
+            <button class="tool" onclick="selectTool('pencil')">Pencil</button>
+            <button class="tool" onclick="selectTool('highlighter')">Highlighter</button>
+            <button class="tool" onclick="selectTool('eraser')">Eraser</button>
+            <button class="tool" onclick="selectTool('strikethrough')">Strikethrough</button>
+        </div>
+        <div class="color-picker">
+            <div class="color" style="background-color: black;" onclick="selectColor('black')"></div>
+            <div class="color" style="background-color: blue;" onclick="selectColor('blue')"></div>
+            <div class="color" style="background-color: red;" onclick="selectColor('red')"></div>
+            <div class="color" style="background-color: green;" onclick="selectColor('green')"></div>
+            <div class="color" style="background-color: yellow;" onclick="selectColor('yellow')"></div>
+        </div>
+    </div>
+    <canvas id="canvas" width="800" height="500"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+        let currentColor = 'black';
+        let currentTool = 'pencil';
+        let lineWidth = 2;
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        function startDrawing(e) {
+            drawing = true;
+            draw(e); // Draw on mousedown
+        }
+
+        function draw(e) {
+            if (!drawing) return;
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = currentColor;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        }
+
+        function stopDrawing() {
+            drawing = false;
+            ctx.beginPath();
+        }
+
+        function selectColor(color) {
+            currentColor = color;
+        }
+
+        function selectTool(tool) {
+            currentTool = tool;
+            switch (tool) {
+                case 'pencil':
+                    ctx.globalCompositeOperation = 'source-over';
+                    lineWidth = 2;
+                    break;
+                case 'highlighter':
+                    ctx.globalCompositeOperation = 'source-over';
+                    lineWidth = 10;
+                    ctx.strokeStyle = currentColor + '66'; // Transparent color for highlighter effect
+                    break;
+                case 'eraser':
+                    ctx.globalCompositeOperation = 'destination-out';
+                    lineWidth = 10;
+                    break;
+                case 'strikethrough':
+                    ctx.globalCompositeOperation = 'source-over';
+                    lineWidth = 2;
+                    ctx.setLineDash([5, 15]); // Dashed line for strikethrough effect
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,37 +1,68 @@
-<!-- Scroll 👇 to check the solution -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="note-container">
+        <div class="note-header">
+            <div class="note-title">EverNote</div>
+            <div class="note-actions">
+                <!-- Save Button -->
+                <button onclick="saveNote()">
+                    <img src="notesaving.png" alt="Save" width="20">
+                </button>
+                <!-- Edit Button -->
+                <button onclick="editNote()">
+                    <img src="edit1.png" alt="Edit" width="20">
+                </button>
+                <!-- Delete Button -->
+                <button onclick="deleteNote()">
+                    <img src="delete1.png" alt="Delete" width="20">
+                </button>
+                <!-- Save and Close Button -->
+                <button onclick="saveAndClose()">
+                    <img src="close.png" alt="Save and Close" width="20">
+                </button>
+            </div>
+        </div>
+        <!-- Text Area for Note Content -->
+        <textarea id="note-content" class="note-content" placeholder="Write your notes here..."></textarea>
+        <!-- Link to Open a New Page -->
+        <div style="margin-top: 20px;">
+            <a href="newpage.html" style="display: inline-block; margin-right: 10px;">
+                <img src="newpage.png" alt="Open a new page" type="button" width="20" height="20">
+            </a>
+            <!-- Toggle Light/Dark Mode Button -->
+            <div class="toggle-mode" style="display: inline-block; margin-right: 10px;">
+                <button onclick="toggleMode()">Toggle Light/Dark Mode</button>
+            </div>
+            <!-- Speech-to-Text Button -->
+            <div class="speech-to-text" style="display: inline-block; margin-right: 10px;">
+                <button onclick="startSpeechRecognition()">Start Speech-to-Text</button>
+            </div>
+            <!-- Share Note Button -->
+            <div class="share-note" style="display: inline-block; margin-right: 10px;">
+                <button onclick="shareNote()">Share Note</button>
+            </div>
+            <!-- Photo Import Button -->
+            <div class="photo-import" style="display: inline-block; margin-right: 10px;">
+                <label for="photo-upload">Import Media</label>
+                <input type="file" id="photo-upload" accept="image/*" onchange="previewPhoto(event)">
+            </div>
+            <!-- Photo Preview -->
+            <div class="photo-preview" id="photo-preview" style="display: inline-block;" width="50" height="20"></div>
+        </div>
+        
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="main.js"></script>
+</body>
+</html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>Book</h1>
-<h2>Chapter 1</h2>
-<h3>Section 1</h3>
-<h3>Section 2</h3>
-<h2>Chapter 2</h2>
-<h3>Section 1</h3>
-<h4>Diagram 1</h4>
-<h2>Chapter 3</h2>
-<h3>Section 1</h3>
-<h3>Section 2</h3>
