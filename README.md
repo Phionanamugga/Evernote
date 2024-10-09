@@ -1,5 +1,5 @@
-# Evernote App
-Welcome to Evernote, a simple and intuitive note-taking app designed to help you manage your notes, stay organized and focused.
+# EverNote App
+Welcome to EverNote, a simple and intuitive note-taking app, designed to help you manage your notes, stay organized and focused.
 
 # Features
 - **Create and Edit Notes**: Write, edit, save, and delete notes with ease.
@@ -13,7 +13,7 @@ Welcome to Evernote, a simple and intuitive note-taking app designed to help you
 
 # Getting Started
 1. **Downloading and installation**:  
-   - Download and install the Ezy Note app from the App Store or Google Play Store.
+   - Download and install the EverNote app from the App Store or Google Play Store.
 2. **Launching the app**: 
    - Launch the app and create a new account or log in if you already have one.
 3. **Writing and Editing Notes**:  
@@ -78,7 +78,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 MIT License
 
-Copyright (c) [2024] [Evernote]
+Copyright (c) [2024] [EverNote]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -104,4 +104,4 @@ SOFTWARE.
 - [Markdown](https://github.com/markdown/markdown) for markdown formatting
 - [React Native](https://github.com/facebook/react-native) for the app framework
 - Changelog
-  See our [CHANGELOG.md](CHANGELOG.md) file for a list of updates and changes to the Ezy Note app.
+  See our [CHANGELOG.md](CHANGELOG.md) file for a list of updates and changes to the EverNote app.
