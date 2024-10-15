@@ -11,10 +11,12 @@ Welcome to Evernote, a simple and intuitive note-taking app designed to help you
 - **Save and Share**: Save your notes to local storage and share them via email.
 - **Multimedia Import**: Import and preview photos and videos directly within your notes.
 
-# Getting Started
-1. **Downloading and installation**:  
-   - Download and install the Ezy Note app from the App Store or Google Play Store.
+Getting Started
+1. Downloading and installation
+- Download and install the EverNote App Store or Google Play Store
+
 2. **Launching the app**: 
+
    - Launch the app and create a new account or log in if you already have one.
 3. **Writing and Editing Notes**:  
    - Use the text area provided to write your notes.  
