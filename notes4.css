@@ -13,5 +13,8 @@ body{
     border-bottom: 1px solid #ccc;
     position: sticky;
     top: 0;
-
+}
+.icon{
+    color: #FFD700;
+    
 }
