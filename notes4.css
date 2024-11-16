@@ -24,3 +24,6 @@ body{
     min-height: 100vh;
     color:000;
 }
+.footer{
+    position:fixed;
+}
