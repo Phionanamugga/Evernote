@@ -1,7 +1,9 @@
 body{
     margin: 0;
     font-family: sans-serif;
-    background-color: #fffbea;
-    
-    
+    background-color: #fffbea
+}
+.navbar{
+    height: 50px;
+    display: flex;
 }
