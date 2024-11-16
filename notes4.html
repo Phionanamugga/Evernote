@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notebook Page</title>
+<style>
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #fffbea;
+
+    }
+    .navbar{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        position:sticky;
+        top:0;
+    }
+
+    .icon{
+        color: #FFD700;
+        font-size: 1.5em;
+        cursor:pointer;
+    }
+
+    .content{
+        padding: 20px;
+        min-height:100vh;
+        color: #000;
+
+    }
+    .footer{
+        position: fixed;
+        bottom: 0;
+        width:100%;
+        display: flex;
+        justify-content: space-around;
+        padding:10px;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+    <div class="navbar">
+   
+      <span class="icon">&#9664;</span>
+      <span class="icon">&#8634;</span>
+      <span class="icon">&#128228;</span>
+      <span class="icon">&#8942;</span>
+    </div>
+    <div class="content" contenteditable="true">
+        <!-- Editable area for notes -->
+    </div>
+    <div class="footer">
+        <span class="icon">&#128194;</span>
+        <span class="icon">&#128247;</span>
+        <span class="icon">&#9998;</span>
+        <span class="icon">&#128221;</span>
+
+    </div>
+
+
+
+</head>
+</html>
