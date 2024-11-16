@@ -19,3 +19,6 @@ body{
     font-size: 1.5em;
     cursor: pointer;
 }
+.content{
+    padding: 20px;
+}
