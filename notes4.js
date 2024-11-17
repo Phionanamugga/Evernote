@@ -32,6 +32,8 @@ window.onload = () => {
     if (savedNote){
         noteArea.innerHTML = savedNote;
     }};
-
+//Share functionality
+shareBtn.addEventListener("click",()=>{
+    alert("Share functionality is not implemented yet!");
+});
     
-}
