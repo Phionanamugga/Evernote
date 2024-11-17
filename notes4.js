@@ -21,5 +21,6 @@ redoBtn.addEventListener("click", ()=>{
 
 // Save content to local storage
 saveBtn.addEventListener("click",()=>{
-    
+    localStorage.setItem("noteContent", noteArea.innerHTML);
+
 })
