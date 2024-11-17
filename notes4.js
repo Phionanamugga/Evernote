@@ -26,3 +26,7 @@ saveBtn.addEventListener("click",()=>{
 
 });
 
+// Load saved content from local storage on page load
+window.onload = () => {
+    
+}
