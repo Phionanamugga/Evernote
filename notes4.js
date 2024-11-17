@@ -7,3 +7,6 @@ const saveBtn = document.getElementById("saveBtn");
 let undoStack = [];
 let redoStack = [];
 
+noteArea.addEventListener("input", () => {
+    undoStack.push(noteArea.innerHTML);
+});
