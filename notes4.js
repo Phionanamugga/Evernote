@@ -15,5 +15,7 @@ redoBtn.addEventListener("click", ()=>{
     if (undoStack.length > 0){
         const lastEdit = undoStack.pop();
         redoStack.push(noteArea.innerHTML);
+        noteArea.innerHTML = lastEdit;
     }
-})
+});
+
