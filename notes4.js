@@ -30,8 +30,8 @@ saveBtn.addEventListener("click",()=>{
 window.onload = () => {
     const savedNote = localStorage.getItem("noteContent");
     if (savedNote){
-        
-    }
+        noteArea.innerHTML = savedNote;
+    }};
 
     
 }
