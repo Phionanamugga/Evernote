@@ -10,3 +10,9 @@ let redoStack = [];
 noteArea.addEventListener("input", () => {
     undoStack.push(noteArea.innerHTML);
 });
+
+redoBtn.addEventListener("click", ()=>{
+    if (undoStack.length > 0){
+        
+    }
+})
